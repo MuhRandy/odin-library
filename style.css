@@ -1,0 +1,134 @@
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 10px;
+}
+
+dialog[open] {
+  position: fixed;
+  top: 0;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  place-content: center;
+  z-index: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  background-color: #fff;
+  padding: 10px;
+  padding-top: 15px;
+  position: relative;
+}
+
+form button[type="button"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+form div:not(:last-of-type) {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+input:focus {
+  outline: none;
+}
+
+.library {
+  border: 1px solid #000;
+  width: clamp(460px, 80%, 100%);
+
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+}
+
+.library > button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#bookshelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+
+  padding: 10px;
+  text-align: center;
+}
+
+#bookshelf > div {
+  border: 1px solid #000;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+}
+
+.buttons {
+  margin-top: auto;
+  padding-top: 10px;
+
+  display: flex;
+  gap: 5px;
+}
+
+.buttons button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.buttons button:first-of-type {
+  background-color: lightgreen;
+  border: 1px solid lightgreen;
+}
+
+.buttons button:first-of-type:hover {
+  background-color: inherit;
+}
+
+.buttons button:last-of-type {
+  background-color: lightcoral;
+  border: 1px solid lightcoral;
+}
+
+.buttons button:last-of-type:hover {
+  background-color: inherit;
+}
