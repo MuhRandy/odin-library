@@ -28,6 +28,7 @@ this.addEventListener("load", () => {
 });
 
 addBookButton.addEventListener("click", () => {
+  resetInput();
   dialog.show();
 });
 
@@ -101,4 +102,11 @@ function generateFakeData() {
   myLibrary.push(new Book("1984", "George Orwell", 328, true));
   myLibrary.push(new Book("Brave New World", "Aldous Huxley", 268, false));
   myLibrary.push(new Book("To Kill a Mockingbird", "Harper Lee", 281, true));
+}
+
+function resetInput() {
+  iTitle.value = "";
+  iAuthor.value = "";
+  iPages.value = "";
+  cRead.checked = false;
 }
