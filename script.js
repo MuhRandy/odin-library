@@ -12,6 +12,7 @@ class Book {
   }
 }
 
+const form = document.querySelector("dialog form");
 const dialog = document.querySelector("dialog");
 const submitButton = document.querySelector("form button[type=submit]");
 const iTitle = document.querySelector("#title");
@@ -23,29 +24,40 @@ const bookshelf = document.querySelector("#bookshelf");
 const addBookButton = document.querySelector("#add-book");
 const closeButton = document.querySelector("form button[type=button]");
 
-this.addEventListener("load", () => {
+window.onload = () => {
   generateFakeData();
   generateBook();
-});
+};
 
-addBookButton.addEventListener("click", () => {
+addBookButton.onclick = () => {
   resetInput();
   dialog.show();
-});
+};
 
-closeButton.addEventListener("click", () => dialog.close());
-submitButton.addEventListener("click", addBookToLibrary);
+iPages.oninput = () => {
+  if (isNaN(parseInt(iPages.value))) {
+    iPages.setCustomValidity("Pages must be number");
+  } else {
+    iPages.setCustomValidity("");
+  }
+};
+
+closeButton.onclick = () => dialog.close();
+submitButton.onclick = addBookToLibrary;
 
 function addBookToLibrary() {
-  const newBook = new Book(
-    iTitle.value,
-    iAuthor.value,
-    iPages.value,
-    cRead.checked
-  );
-  myLibrary.push(newBook);
+  if (form.checkValidity()) {
+    const newBook = new Book(
+      iTitle.value,
+      iAuthor.value,
+      iPages.value,
+      cRead.checked
+    );
 
-  generateBook();
+    myLibrary.push(newBook);
+
+    generateBook();
+  }
 }
 
 function generateBook() {
